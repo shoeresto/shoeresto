@@ -72,6 +72,103 @@ input, select, textarea {
 	appearance: none;
 }
 
+/*process-card*/
+
+.process-card {
+	background-color: #333;
+	color: #fff;
+	font-family: 'Spoqa Han Sans Neo', sans-serif;
+	font-size: 0.95rem;
+	line-height: 1.6;
+	padding: 1.5rem;
+	border-radius: 1rem;
+	margin-bottom: 0rem;
+	box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  }
+  
+  .process-card h3 {
+	font-size: 1.1rem;
+	font-weight: 700;
+	margin-bottom: 0.8rem;
+	display: flex;
+	align-items: center;
+	gap: 1.5rem;
+  }
+  
+  .process-card p {
+	font-size: 0.75rem;
+	font-weight: 200;
+  }
+ 
+  /*서비스항목*/
+  .service-block {
+	border-bottom: 1px solid #fff;
+	padding-bottom: 0rem;
+	margin-bottom: 1.5rem;
+	font-family: 'Spoqa Han Sans Neo', sans-serif;
+	font-size: 0.95rem;
+	line-height: 1.5;
+  }
+  
+  .service-block h3 {
+	font-size: 1.1rem;
+	font-weight: 700;
+	margin-bottom: 1rem;
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+  }
+  
+  .service-block .desc {
+	font-size: 0.75rem;
+	font-weight: 100;
+  }
+  
+  .service-block ul {
+	font-size: 0.75rem;
+	font-weight: 100;
+	padding-left: 1.2rem;
+  }
+  
+  .service-block ul li {
+	margin-bottom: 0.4rem;
+  }
+
+
+/*복원사례*/
+
+.review-block {
+	border-bottom: 1px solid #fff;
+	padding-bottom: 1.5rem;
+	margin-bottom: 0.5rem;
+	font-family: 'Spoqa Han Sans Neo', sans-serif;
+	font-size: 0.95rem;
+	line-height: 1.5;
+  }
+  
+  .review-block h2 {
+	font-size: 1.1rem;
+	font-weight: 700;
+	margin-bottom: 0.5rem;
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+  }
+  
+  .review-block .desc {
+	font-size: 0.75rem;
+	font-weight: 100;
+  }
+  
+  .review-block ul {
+	font-size: 0.70rem;
+	font-weight: 100;
+	padding-left: 1.2rem;
+	margin-bottom: 0.5rem;
+  }
+  
+
+
 /* Basic */
 
 	@-ms-viewport {
@@ -141,7 +238,7 @@ input, select, textarea {
 
 	body, input, select, textarea {
 		color: #ffffff;
-		font-family: "Source Sans Pro", sans-serif;
+		font-family: "Spoqa Han Sans Neo", sans-serif;
 		font-weight: 300;
 		font-size: 1rem;
 		line-height: 1.65;
@@ -1290,18 +1387,21 @@ input, select, textarea {
 				display: none;
 			}
 
-		#header .logo {
-			width: 5.5rem;
-			height: 5.5rem;
-			line-height: 5.5rem;
-			border: solid 1px #ffffff;
-			border-radius: 100%;
-		}
+			#header .logo {
+				width: auto;
+				height: auto;
+				margin: 0 auto;
+				display: block !important;
+  				opacity: 1 !important;
+  				visibility: visible !important;
+			  }
 
-			#header .logo .icon:before {
-				font-size: 2rem;
-			}
-
+				#header .logo img {
+					width: 120px; /* 이미지 크기를 명확히 지정 */
+					height: auto;
+					display: block;
+					margin: 0 auto;
+		 		 }
 		#header .content {
 			border-style: solid;
 			border-color: #ffffff;
@@ -1333,7 +1433,22 @@ input, select, textarea {
 				letter-spacing: 0.2rem;
 				font-size: 0.8rem;
 				line-height: 2;
+				white-space: normal !important;
 			}
+			#header .content p.main-line {
+				font-size: 1rem;
+				font-weight: bold;
+				letter-spacing: 0.2rem;
+				text-transform: uppercase;
+			  }
+			  
+			  #header .content p.sub-line {
+				font-size: 0.75rem;
+				line-height: 1.8;
+				text-transform: none;
+				letter-spacing: 0;
+				opacity: 0.9;
+			  }
 
 		#header nav ul {
 			display: -moz-flex;
@@ -1440,14 +1555,17 @@ input, select, textarea {
 					height: calc(2rem + 1px);
 				}
 
-			#header .logo {
+			/*#header .logo {
 				width: 4.75rem;
 				height: 4.75rem;
 				line-height: 4.75rem;
-			}
+			}*/
 
-				#header .logo .icon:before {
-					font-size: 1.75rem;
+				#header .logo img {
+					width: 70px !important;
+					height: auto !important;
+					display: block;
+					margin: 0 auto;
 				}
 
 			#header .content .inner {
@@ -1659,3 +1777,4 @@ input, select, textarea {
 		body.is-preload #footer {
 			opacity: 0;
 		}
+		
