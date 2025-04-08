@@ -519,5 +519,12 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 			<script src="https://static.elfsight.com/platform/platform.js" ></script>
+			<script>
+				  document.addEventListener("DOMContentLoaded", function () {
+	   			 if (typeof window.elfsight !== "undefined") {
+	  			    elfsight.load();  // Elfsight 수동 로딩 시도
+	   				 }
+	  			});
+			</script>
 	</body>
 </html>
