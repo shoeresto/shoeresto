@@ -520,11 +520,18 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/main.js"></script>
 			<script src="https://static.elfsight.com/platform/platform.js" defer></script>
 			<script>
-				  document.addEventListener("DOMContentLoaded", function () {
-	   			 if (typeof window.elfsight !== "undefined") {
-	  			    elfsight.load();  // Elfsight 수동 로딩 시도
-	   				 }
-	  			});
+			  document.addEventListener("DOMContentLoaded", function () {
+			    if (typeof window.ELFSIGHT_WIDGETS !== "undefined") {
+			      window.ELFSIGHT_WIDGETS.init();
+			    } else {
+			      // 스크립트가 아직 로드되지 않았다면 지연 후 시도
+			      setTimeout(function () {
+			        if (typeof window.ELFSIGHT_WIDGETS !== "undefined") {
+			          window.ELFSIGHT_WIDGETS.init();
+			        }
+			      }, 2000); // 2초 후 재시도
+			    }
+			  });
 			</script>
 	</body>
 </html>
