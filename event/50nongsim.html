@@ -1,179 +1,118 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="shoerestoevent" content="width=device-width, initial-scale=1.0">
-    <title>슈리스토 단체 농구화 세탁 50% 할인 프로모션</title>
-    <!-- Load Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
-    <!-- Use Inter font --><style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0d1117; /* Dark background color */
-            color: #e5e7eb; /* Light gray text color */
-        }
-        /* Custom modal backdrop for better look */
-        dialog::backdrop {
-            background-color: rgba(0, 0, 0, 0.7);
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>슈리스토 단체 농구화 스팀 세탁 50% 할인</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.3/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="antialiased">
+<body class="min-h-screen m-0 p-0 font-sans bg-gray-50">
 
-    <!-- Main Container: Dark theme for high-performance feel --><div class="max-w-3xl mx-auto min-h-screen shadow-2xl bg-gray-900">
-        
-        <!-- Header & Main Hook Section -->
-            <header class="relative text-center p-6 sm:p-10 border-b-4 border-yellow-400 
-                           bg-cover bg-center" 
-                    style="background-image: url('../images/event_bg.jpg');">
-                
-                <!-- 오버레이 -->
-                <div class="absolute inset-0 bg-black bg-opacity-40"></div>
-            
-                <!-- 텍스트 -->
-                <div class="relative z-10 flex flex-col items-center justify-center h-full">
-                    <h1 class="text-2xl font-black text-white sm:text-4xl mb-2">슈리스토</h1>
-                    <p class="text-yellow-400 font-extrabold text-3xl sm:text-5xl mb-6 leading-tight">
-                        [50% 파격 할인]
-                    </p>
-                    <h2 class="text-xl sm:text-3xl font-bold text-gray-200">
-                        ⛹️ 다시 태어난 듯한 그립감! 
-                    </h2>
-                    <h3 class="text-4xl sm:text-6xl font-extrabold text-white mt-2 mb-4 drop-shadow-lg">
-                        단체 농구화 스팀 세탁
-                    </h3>
-                    <div class="inline-block px-4 py-2 bg-yellow-400 text-gray-900 font-black rounded-full text-lg sm:text-xl transform hover:scale-105 transition duration-300">
-                        농심 활동 단체라면 무조건 적용!
-                    </div>
-                </div>
-            </header>
-
-        <!-- Problem Statement & Solution --><section class="p-6 sm:p-10 text-center">
-            <h4 class="text-2xl sm:text-3xl font-bold text-yellow-400 mb-4 border-b border-gray-700 pb-3">
-                코트 위 컨디션을 위한 핵심 질문
-            </h4>
-
-            <div class="bg-gray-800 p-6 rounded-xl shadow-inner mb-8">
-                <p class="text-2xl sm:text-4xl font-extrabold text-red-500 italic leading-snug">
-                    냄새는 세균이, 미끄러짐은 먼지가 만든다
-                </p>
+    <!-- 헤더: 화면 전체 높이 + 배경 이미지 -->
+    <header class="relative w-full h-screen flex items-center justify-center text-center border-b-4 border-yellow-400"
+            style="background: url('images/event_bg.jpg') center/cover no-repeat;">
+        <!-- 오버레이 -->
+        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+        <!-- 텍스트 -->
+        <div class="relative z-10 px-6 sm:px-10">
+            <h1 class="text-3xl sm:text-5xl font-black text-white mb-2">슈리스토</h1>
+            <p class="text-yellow-400 font-extrabold text-4xl sm:text-6xl mb-6 leading-tight">[50% 파격 할인]</p>
+            <h2 class="text-xl sm:text-3xl font-bold text-gray-200">⛹️ 다시 태어난 듯한 그립감!</h2>
+            <h3 class="text-4xl sm:text-6xl font-extrabold text-white mt-2 mb-4 drop-shadow-lg">단체 농구화 스팀 세탁</h3>
+            <div class="inline-block px-4 py-2 bg-yellow-400 text-gray-900 font-black rounded-full text-lg sm:text-xl transform hover:scale-105 transition duration-300">
+                농심 활동 단체라면 무조건 적용!
             </div>
+        </div>
+    </header>
 
-            <div class="space-y-6">
-                <!-- Steam Power Feature --><div class="bg-gray-800 p-5 rounded-xl border-l-4 border-orange-500">
-                    <h5 class="text-xl sm:text-2xl font-bold mb-2 text-white flex items-center justify-center">
-                        <span class="mr-2 text-orange-500 text-3xl">👟</span> 100℃ 고온 스팀의 과학
-                    </h5>
-                    <p class="text-gray-300">100℃에 가까운 고운 스팀은 신발 내부와 외부의 세균과 냄새의 근원을 제거합니다..</p>
-                </div>
+    <!-- 본문 내용 -->
+    <main class="px-6 sm:px-10 py-12 space-y-12">
 
-                <!-- Grip Restoration Feature --><div class="bg-gray-800 p-5 rounded-xl border-l-4 border-orange-500">
-                    <h5 class="text-xl sm:text-2xl font-bold mb-2 text-white flex items-center justify-center">
-                        <span class="mr-2 text-orange-500 text-3xl">👣</span> 마찰력 복원, 최적의 그립 제공
-                    </h5>
-                    <p class="text-gray-300">밑창의 먼지와 유분을 씻어내어 <u>마찰력을 되살리고 본래의 접지력을 복원</u>합니다.</p>
-                </div>
-            </div>
-
-            <!-- Scientific Fact Highlight --><div class="mt-8 p-4 bg-red-900 bg-opacity-30 border-2 border-red-500 rounded-lg">
-                <p class="text-lg font-semibold text-red-300">
-                    📌 연구 결과: 오염된 밑창은 마찰계수가 최대 <u>50%까지 감소</u>합니다.
-                </p>
-            </div>
+        <!-- 핵심 질문 -->
+        <section>
+            <h4 class="text-2xl font-bold mb-3">코트 위 컨디션을 위한 핵심 질문</h4>
+            <p class="text-lg text-gray-700">냄새는 세균이, 미끄러짐은 먼지가 만든다</p>
         </section>
 
-        <!-- Pricing & Offer Section --><section class="p-6 sm:p-10 bg-gray-800">
-            <h4 class="text-center text-3xl font-extrabold text-yellow-400 mb-6">
-                💰 단체 특별 할인 혜택
-            </h4>
+        <!-- 100℃ 고온 스팀 -->
+        <section>
+            <h5 class="text-xl font-semibold mb-2">100℃ 고온 스팀의 과학</h5>
+            <p class="text-gray-700">100℃에 가까운 고운 스팀은 신발 내부와 외부의 세균과 냄새의 근원을 제거합니다.</p>
+        </section>
 
-            <!-- Price Comparison Card --><div class="bg-gray-900 p-6 rounded-2xl shadow-xl border border-gray-700">
-                <div class="flex justify-between items-center mb-4 border-b border-gray-700 pb-3">
-                    <span class="text-lg font-semibold text-gray-400">구분</span>
-                    <span class="text-lg font-semibold text-gray-400">정상가 (1족)</span>
-                    <span class="text-lg font-semibold text-yellow-400">단체 할인가 (1족)</span>
-                </div>
-                
-                <div class="flex justify-between items-center py-3 border-b border-gray-700">
-                    <span class="text-xl font-bold">기본 스팀 세탁</span>
-                    <span class="text-xl font-extrabold line-through text-red-500">28,000원</span>
-                    <span class="text-3xl font-black text-yellow-400">14,000원</span>
-                </div>
-
-                <div class="mt-6 text-center">
-                    <p class="text-lg font-bold text-white mb-2">⭐ 추가 서비스 (무료)</p>
-                    <p class="text-base text-gray-300">1 Point 부분 접착을 서비스로 진행해 드립니다.</p>
-                </div>
-                
-                <div class="mt-6 p-3 bg-gray-700 rounded-lg text-center">
-                    <p class="text-base font-bold text-orange-400">
-                        * 발목터짐 패치 수선 시 10,000원 추가 (양쪽 기준)
-                    </p>
-                </div>
-            </div>
-
-            <p class="text-center text-red-400 font-bold text-xl mt-6">
-                [필수 조건] 한 번에 최소 4족 이상 발송 시에만 적용됩니다.
+        <!-- 마찰력 복원 -->
+        <section>
+            <h5 class="text-xl font-semibold mb-2">마찰력 복원, 최적의 그립 제공</h5>
+            <p class="text-gray-700">
+                밑창의 먼지와 유분을 씻어내어 마찰력을 되살리고 본래의 접지력을 복원합니다.<br>
+                연구 결과: 오염된 밑창은 마찰계수가 최대 50%까지 감소합니다.
             </p>
         </section>
 
-        <!-- How to Order Section --><section class="p-6 sm:p-10">
-            <h4 class="text-center text-3xl font-extrabold text-white mb-8">
-                📦 신청 방법
-            </h4>
+        <!-- 단체 특별 할인 -->
+        <section>
+            <h4 class="text-2xl font-bold mb-3">단체 특별 할인 혜택</h4>
+            <table class="w-full text-left border border-gray-300 mb-4">
+                <thead class="bg-gray-200">
+                    <tr>
+                        <th class="p-2 border">구분</th>
+                        <th class="p-2 border">정상가 (1족)</th>
+                        <th class="p-2 border">단체 할인가 (1족)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="p-2 border">기본 스팀 세탁</td>
+                        <td class="p-2 border">28,000원</td>
+                        <td class="p-2 border">14,000원</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="text-gray-700 mb-2">⭐ 추가 서비스 (무료): 1 Point 부분 접착</p>
+            <p class="text-gray-700 mb-2">* 발목터짐 패치 수선 시 10,000원 추가 (양쪽 기준)</p>
+            <p class="text-gray-700">[필수 조건] 한 번에 최소 4족 이상 발송 시에만 적용됩니다.</p>
+        </section>
 
-            <ol class="space-y-6">
-                <!-- Step 1 --><li class="flex items-start bg-gray-800 p-5 rounded-xl shadow-lg border-l-4 border-yellow-400">
-                    <div class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-yellow-400 text-gray-900 font-black rounded-full text-xl mr-4">1</div>
-                    <div>
-                        <p class="text-lg font-bold text-white">신발 포장 및 대표 지정</p>
-                        <p class="text-gray-300 text-sm">보내시는 분 <u>대표 한 명</u>이 신발을 모아 박스에 포장해 주세요.</p>
-                    </div>
+        <!-- 신청 방법 -->
+        <section>
+            <h4 class="text-2xl font-bold mb-3">신청 방법</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700">
+                <li>
+                    신발 포장 및 대표 지정<br>
+                    보내시는 분 대표 한 명이 신발을 모아 박스에 포장해 주세요.
                 </li>
-                <!-- Step 2 --><li class="flex items-start bg-gray-800 p-5 rounded-xl shadow-lg border-l-4 border-yellow-400">
-                    <div class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-yellow-400 text-gray-900 font-black rounded-full text-xl mr-4">2</div>
-                    <div>
-                        <p class="text-lg font-bold text-white">카카오톡 채널 접수</p>
-                        <p class="text-gray-300 text-sm"><u>카카오톡채널 - 슈리스토</u>로 단체 발송 메시지와 <u>송장번호</u>를 남겨주세요.</p>
-                        <a href="http://pf.kakao.com/_aWzWj/chat" target="_blank" class="text-orange-400 underline font-semibold mt-1 block">
-                            👉 채널로 바로 이동하기
-                        </a>
-                    </div>
+                <li>
+                    카카오톡 채널 접수<br>
+                    카카오톡채널 - 슈리스토로 단체 발송 메시지와 송장번호를 남겨주세요.<br>
+                    <a href="https://pf.kakao.com/_channel-link" class="text-yellow-500 underline">채널 바로 이동</a>
                 </li>
-                <!-- Step 3 --><li class="flex items-start bg-gray-800 p-5 rounded-xl shadow-lg border-l-4 border-yellow-400">
-                    <div class="flex-shrink-0 w-8 h-8 flex items-center justify-center bg-yellow-400 text-gray-900 font-black rounded-full text-xl mr-4">3</div>
-                    <div>
-                        <p class="text-lg font-bold text-white">수령 확인 및 결제</p>
-                        <p class="text-gray-300 text-sm">저희가 수령 후 <u>확인 사진</u>을 보내드리면, <u>계좌이체</u>로 입금해 주시면 됩니다. (작업기간: 2~3일 소요)</p>
-                    </div>
+                <li>
+                    수령 확인 및 결제<br>
+                    수령 후 확인 사진을 보내드리면, 계좌이체로 입금해 주시면 됩니다.<br>
+                    <a href="https://pf.kakao.com/_order-link" class="text-yellow-500 underline">지금 신청하기</a>
                 </li>
             </ol>
         </section>
 
-        <!-- Final Call to Action --><div class="p-6 sm:p-10 pt-0">
-            <a href="http://pf.kakao.com/_aWzWj/chat" target="_blank" class="block w-full text-center bg-orange-600 hover:bg-orange-700 text-white font-black py-4 rounded-xl text-2xl shadow-2xl transition duration-300 transform hover:scale-[1.02]">
-                지금 바로 단체 세탁 신청하기! 🏀
-            </a>
-            <p class="text-center text-sm text-gray-500 mt-3">* 발송 전 반드시 카카오톡 채널로 접수해 주세요.</p>
-        </div>
-
-        <!-- Disclaimer / Fine Print --><section class="p-6 sm:p-10 bg-gray-950 border-t border-gray-700">
-            <h4 class="text-xl font-bold text-red-400 mb-4">
-                ⚠️ 유의사항 (꼭 읽어주세요)
-            </h4>
-            <ul class="list-disc list-inside space-y-2 text-gray-400 text-sm">
-                <li>본 서비스는 <u><strong>농심에서 활동중인 동호회, 학교, 학원, 교습소</strong></u> 단체에 한해 적용됩니다.</li>
-                <li>할인 혜택은 <u><strong>한번에 4족 이상</strong></u>을 맡겨주시는 경우에만 적용됩니다.</li>
-                <li>세탁 작업 기간은 2~3일 정도 소요되며, 수령일이 주말인 경우 요일을 지정해 주시면 됩니다.</li>
-                <li><u><strong>발목 패치 수선 외 기타 복원에 대해서는 본 서비스로 작업을 하지 않습니다.</strong></u></li>
-                <li><u><strong>[개인 복원 문의]</strong></u> 기타 복원을 원하시는 경우, 신발 소유 개인이 직접 카카오톡으로 연락 바랍니다. (이 경우 세탁 할인은 적용되지 않습니다.)</li>
-                <li>결제는 <u><strong>계좌이체</strong></u>로만 가능합니다.</li>
+        <!-- 유의사항 -->
+        <section>
+            <h4 class="text-2xl font-bold mb-3">⚠️ 유의사항 (꼭 읽어주세요)</h4>
+            <ul class="list-disc list-inside space-y-2 text-gray-700">
+                <li>본 서비스는 농심에서 활동중인 동호회, 학교, 학원, 교습소 단체에 한해 적용됩니다.</li>
+                <li>할인 혜택은 한번에 4족 이상 맡겨주시는 경우에만 적용됩니다.</li>
+                <li>세탁 작업 기간은 2~3일 정도 소요되며, 수령일이 주말인 경우 요일 지정 가능</li>
+                <li>발목 패치 수선 외 기타 복원은 본 서비스로 작업하지 않습니다.</li>
+                <li>개인 복원 문의는 신발 소유자가 직접 카카오톡으로 연락 바랍니다. (단, 세탁 할인 미적용)</li>
+                <li>결제는 계좌이체만 가능합니다.</li>
             </ul>
         </section>
-        
-        <!-- Footer --><footer class="p-4 text-center text-xs text-gray-600 border-t border-gray-800">
-            &copy; 2025 슈리스토. All rights reserved.
-        </footer>
-    </div>
+
+    </main>
+
+    <!-- 푸터 -->
+    <footer class="px-6 sm:px-10 py-8 bg-gray-100 text-center text-gray-600">
+        © 2025 슈리스토. All rights reserved.
+    </footer>
+
 </body>
 </html>
