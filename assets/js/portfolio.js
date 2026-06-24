@@ -52,6 +52,9 @@ function render() {
         : "inline-block";
 
   }
+  setTimeout(() => {
+  window.dispatchEvent(new Event("resize"));
+}, 300);
 }
 
 document.querySelectorAll(".portfolio-filter a")
