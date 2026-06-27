@@ -2,8 +2,8 @@ name: Update Portfolio Posts
 
 on:
   schedule:
-    - cron: '0 0 * * *' # 매일 자정(0시)에 실행
-  workflow_dispatch:     # 수동 실행 가능 버튼 추가
+    - cron: '0 0 * * *'
+  workflow_dispatch:
 
 jobs:
   build:
@@ -15,10 +15,12 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          # 버전을 명시하지 않거나 가장 최신 LTS로 자동 지정되게 합니다.
+          node-version-file: 'package.json' 
+          cache: 'npm'
 
       - name: Install dependencies
-        run: npm install node-fetch dotenv # 필요한 패키지 설치
+        run: npm install node-fetch dotenv
 
       - name: Run build script
         env:
