@@ -15,9 +15,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          # 버전을 명시하지 않거나 가장 최신 LTS로 자동 지정되게 합니다.
-          node-version-file: 'package.json' 
-          cache: 'npm'
+          node-version: '24' # 경고를 방지하기 위해 24버전으로 명시적 지정
 
       - name: Install dependencies
         run: npm install node-fetch dotenv
