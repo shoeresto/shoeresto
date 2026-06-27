@@ -5,6 +5,10 @@ on:
     - cron: '0 0 * * *'
   workflow_dispatch:
 
+env:
+  # GitHub Actions Node 20 EOL 경고 우회 및 호환성 유지
+  ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -15,16 +19,18 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '24' # 경고를 방지하기 위해 24버전으로 명시적 지정
+          node-version: '20'
 
-      - name: Install dependencies
-        run: npm install node-fetch dotenv
+      - name: Prepare environment and Install dependencies
+        run: |
+          mkdir -p data # data 폴더가 없으면 에러가 나므로 강제 생성
+          npm install node-fetch dotenv
 
       - name: Run build script
         env:
           IG_TOKEN: ${{ secrets.IG_TOKEN }}
           IG_ID: ${{ secrets.IG_ID }}
-        run: node build.js
+        run: node scripts/build.js # 실행 경로를 scripts 폴더 내부로 변경
 
       - name: Commit and Push changes
         run: |
