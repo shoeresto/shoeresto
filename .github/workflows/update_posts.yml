@@ -6,8 +6,12 @@ on:
   workflow_dispatch:
 
 env:
-  # GitHub Actions Node 20 EOL 경고 우회 및 호환성 유지
-  ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
+  # Node.js 24 강제 적용을 통한 경고 해결
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+# 저장소에 푸시(push)할 수 있도록 쓰기 권한 부여
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -19,7 +23,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24' # Node 24로 업데이트
 
       - name: Prepare environment and Install dependencies
         run: |
