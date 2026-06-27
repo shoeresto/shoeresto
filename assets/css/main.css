@@ -2422,6 +2422,31 @@ body.is-preload #footer {
 	stroke-width: 5;
 }
 
+/* 인디케이터 스타일 */
+.indicator-container {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 50%;
+    transition: background 0.3s;
+}
+
+.dot.active {
+    background: white;
+}
+
+/* 이미지 전환 애니메이션 */
+#modal-image {
+    transition: opacity 0.2s ease-in-out;
+}
+
 /* faq */
 details {
 	border-bottom: 1px solid rgba(255, 255, 255, .15);
