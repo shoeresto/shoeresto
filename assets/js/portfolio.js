@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", init);
 async function init() {
     cacheElements();
     bindStaticEvents();
-    bindTouchEvents(); // 터치 이벤트 초기 바인딩 추가
+    bindTouchEvents();
     await loadPosts();
 }
 
@@ -51,17 +51,45 @@ function createPortfolioItem(post) {
     const lines = post.caption.split("\n");
     const title = lines[0];
     const preview = lines.slice(1).join(" ");
-    return `<div class="portfolio-item" data-id="${post.id}"><img src="${post.images ? post.images[0] : post.image}" loading="lazy" alt="${title}"><div class="portfolio-overlay"><h4>${title}</h4><p>${preview}</p></div></div>`;
+    const actionText = window.innerWidth <= 736 ? "Tap again to view" : "Click to View";
+    
+    return `<div class="portfolio-item" data-id="${post.id}"><img src="${post.images ? post.images[0] : post.image}" loading="lazy" alt="${title}"><div class="portfolio-overlay"><h4>${title}</h4><p>${preview}</p><span>${actionText}</span></div></div>`;
 }
 
+// [복구됨] 모바일 원탭 / 투탭 로직 처리
 function bindPortfolioItems() {
     document.querySelectorAll(".portfolio-item").forEach(item => {
         item.onclick = (e) => {
             e.stopPropagation();
             const post = state.posts.find(p => p.id == item.dataset.id);
-            if (post) openModal(post);
+            if (!post) return;
+
+            // 모바일일 경우 첫 탭은 오버레이, 두 번째 탭은 모달 오픈
+            if (window.innerWidth <= 736) {
+                if (state.mobileSelected !== item) {
+                    showMobileOverlay(item);
+                    return; 
+                }
+            }
+
+            openModal(post);
         };
     });
+}
+
+// [복구됨] 모바일 오버레이 표시
+function showMobileOverlay(item) {
+    hideMobileOverlay();
+    item.classList.add("mobile-active");
+    state.mobileSelected = item;
+}
+
+// [복구됨] 모바일 오버레이 숨김
+function hideMobileOverlay() {
+    document.querySelectorAll(".portfolio-item").forEach(item =>
+        item.classList.remove("mobile-active")
+    );
+    state.mobileSelected = null;
 }
 
 function bindStaticEvents() {
@@ -72,6 +100,7 @@ function bindStaticEvents() {
             button.classList.add("active");
             state.filter = button.dataset.filter;
             state.visibleCount = 20;
+            hideMobileOverlay(); // 필터 변경 시 초기화
             render();
         });
     });
@@ -85,13 +114,25 @@ function bindStaticEvents() {
         e.preventDefault();
         closeModal();
     });
+
+    // [복구됨] 바탕 클릭 시 모바일 오버레이 해제
+    document.addEventListener("click", e => {
+        if (window.innerWidth > 736) return;
+        if (e.target.closest(".portfolio-item")) return;
+        if (el.modal && el.modal.classList.contains("active")) return;
+        hideMobileOverlay();
+    });
+
+    // [복구됨] 화면 크기 변경 시 오버레이 상태 초기화
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 736) {
+            hideMobileOverlay();
+        }
+    });
 }
 
-// 터치 이벤트 별도 바인딩
 function bindTouchEvents() {
     let touchStartX = 0;
-    
-    // modal-wrapper 전체 영역에서 터치 감지
     document.addEventListener("touchstart", e => {
         if (e.target.closest('#portfolio-modal')) {
             touchStartX = e.touches[0].clientX;
@@ -111,6 +152,7 @@ function closeModal() {
     el.modal.classList.remove("active");
     document.body.style.overflow = "";
     state.currentPost = null;
+    hideMobileOverlay(); // 모달 닫을 때 오버레이도 초기화
 }
 
 function openModal(post) {
