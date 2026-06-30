@@ -47,16 +47,20 @@ function render() {
     bindPortfolioItems();
 }
 
+// [수정됨] 로딩 효과를 위한 is-loading 클래스 및 onload 이벤트 추가
 function createPortfolioItem(post) {
     const lines = post.caption.split("\n");
     const title = lines[0];
     const preview = lines.slice(1).join(" ");
     const actionText = window.innerWidth <= 736 ? "Tap again to view" : "Click to View";
     
-    return `<div class="portfolio-item" data-id="${post.id}"><img src="${post.images ? post.images[0] : post.image}" loading="lazy" alt="${title}"><div class="portfolio-overlay"><h4>${title}</h4><p>${preview}</p><span>${actionText}</span></div></div>`;
+    // onload 이벤트를 통해 이미지가 로드되면 is-loading 클래스를 지우고 loaded 클래스를 추가합니다.
+    return `<div class="portfolio-item is-loading" data-id="${post.id}">
+        <img src="${post.images ? post.images[0] : post.image}" loading="lazy" alt="${title}" onload="this.parentElement.classList.remove('is-loading'); this.classList.add('loaded');">
+        <div class="portfolio-overlay"><h4>${title}</h4><p>${preview}</p><span>${actionText}</span></div>
+    </div>`;
 }
 
-// [복구됨] 모바일 원탭 / 투탭 로직 처리
 function bindPortfolioItems() {
     document.querySelectorAll(".portfolio-item").forEach(item => {
         item.onclick = (e) => {
@@ -77,14 +81,12 @@ function bindPortfolioItems() {
     });
 }
 
-// [복구됨] 모바일 오버레이 표시
 function showMobileOverlay(item) {
     hideMobileOverlay();
     item.classList.add("mobile-active");
     state.mobileSelected = item;
 }
 
-// [복구됨] 모바일 오버레이 숨김
 function hideMobileOverlay() {
     document.querySelectorAll(".portfolio-item").forEach(item =>
         item.classList.remove("mobile-active")
@@ -100,7 +102,7 @@ function bindStaticEvents() {
             button.classList.add("active");
             state.filter = button.dataset.filter;
             state.visibleCount = 20;
-            hideMobileOverlay(); // 필터 변경 시 초기화
+            hideMobileOverlay();
             render();
         });
     });
@@ -115,7 +117,6 @@ function bindStaticEvents() {
         closeModal();
     });
 
-    // [복구됨] 바탕 클릭 시 모바일 오버레이 해제
     document.addEventListener("click", e => {
         if (window.innerWidth > 736) return;
         if (e.target.closest(".portfolio-item")) return;
@@ -123,7 +124,6 @@ function bindStaticEvents() {
         hideMobileOverlay();
     });
 
-    // [복구됨] 화면 크기 변경 시 오버레이 상태 초기화
     window.addEventListener("resize", () => {
         if (window.innerWidth > 736) {
             hideMobileOverlay();
@@ -152,7 +152,7 @@ function closeModal() {
     el.modal.classList.remove("active");
     document.body.style.overflow = "";
     state.currentPost = null;
-    hideMobileOverlay(); // 모달 닫을 때 오버레이도 초기화
+    hideMobileOverlay();
 }
 
 function openModal(post) {
@@ -199,24 +199,27 @@ function updateIndicators(count) {
     }
 }
 
+// [업데이트 됨] 최신 버전의 화살표 생성 함수 반영
 function createModalArrows() {
     if (document.getElementById("modal-prev")) return;
-    const wrapper = el.modal.querySelector(".modal-wrapper");
-    if (!wrapper) return;
-    wrapper.style.position = "relative";
+    const modalContent = el.modal.querySelector(".portfolio-modal-content");
     
+    // 왼쪽 화살표
     const prevBtn = document.createElement("div");
     prevBtn.id = "modal-prev";
     prevBtn.className = "modal-arrow";
     prevBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>';
     prevBtn.onclick = (e) => { e.stopPropagation(); prevImage(); };
+
+    // 오른쪽 화살표
     const nextBtn = document.createElement("div");
     nextBtn.id = "modal-next";
     nextBtn.className = "modal-arrow";
     nextBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>';
     nextBtn.onclick = (e) => { e.stopPropagation(); nextImage(); };
-    wrapper.appendChild(prevBtn);
-    wrapper.appendChild(nextBtn);
+
+    modalContent.appendChild(prevBtn);
+    modalContent.appendChild(nextBtn);
 }
 
 function updateModalImage() {
