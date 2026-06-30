@@ -2447,6 +2447,48 @@ body.is-preload #footer {
     transition: opacity 0.2s ease-in-out;
 }
 
+/* =========================================
+   포트폴리오 썸네일 이미지 로딩(스켈레톤 & 블러) 효과
+========================================= */
+
+/* 로딩 중일 때 배경색(회색조) 설정 */
+.portfolio-item.is-loading {
+    background-color: #2a2a2a; /* 어두운 로딩 배경 */
+    position: relative;
+    overflow: hidden;
+}
+
+/* 로딩 애니메이션 (빛이 왼쪽에서 오른쪽으로 지나가는 효과) */
+.portfolio-item.is-loading::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+    animation: loading-shimmer 1.5s infinite linear;
+    z-index: 1;
+}
+
+@keyframes loading-shimmer {
+    0% { left: -100%; }
+    100% { left: 200%; }
+}
+
+/* 이미지 로드 전 상태 (투명도 조절 및 블러 처리) */
+.portfolio-item img {
+    opacity: 0;
+    filter: blur(10px);
+    transition: opacity 0.4s ease-in-out, filter 0.4s ease-in-out;
+}
+
+/* 로딩이 완료되어(onload) .loaded 클래스가 붙은 상태 */
+.portfolio-item img.loaded {
+    opacity: 1;
+    filter: blur(0);
+}
+
 /* faq */
 details {
 	border-bottom: 1px solid rgba(255, 255, 255, .15);
